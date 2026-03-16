@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #1e1e2e;
+  --color-brand-pane: #181825;
+  --color-brand-input: #313244;
+  --color-brand-text: #cdd6f4;
+  --color-brand-accent: #89b4fa;
+  --color-brand-accent-hover: #74c7ec;
+  --color-brand-border: #45475a;
+  
+  --color-brand-green: #2ecc71;
+  --color-brand-orange: #f39c12;
+  --color-brand-gray: #95a5a6;
+  --color-brand-disabled: #585b70;
+  --color-brand-disabled-text: #6c7086;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased;
+    margin: 0;
+  }
+}
+
+/* Base custom interactive styles matching PySide6 */
+.qtx-input {
+  @apply bg-brand-input text-brand-text border border-brand-border rounded px-2 py-1.5 focus:outline-none focus:border-brand-accent;
+}
+
+.qtx-button {
+  @apply bg-brand-accent text-[#1e1e2e] font-bold rounded-sm px-4 py-1 hover:bg-brand-accent-hover disabled:bg-brand-disabled disabled:text-brand-disabled-text transition-colors cursor-pointer disabled:cursor-not-allowed text-sm leading-5;
+}
+
+.qtx-pane {
+  @apply bg-brand-pane border border-brand-border;
+}
+
+.qtx-tab {
+  @apply bg-brand-input text-brand-text px-7 py-1.5 cursor-pointer transition-colors border border-brand-border border-b-0 text-sm font-semibold leading-5;
+}
+
+.qtx-tab-active {
+  @apply bg-brand-border text-brand-text;
+}
+
+.qtx-section-title {
+  @apply absolute -top-[1px] left-1/2 -translate-x-1/2 bg-brand-border text-brand-text px-6 py-0.5 text-sm border-x border-brand-border;
+}
+
+/* React Resizable Panels Handle */
+.resize-handle {
+  @apply w-[1px] bg-brand-border relative mx-1 transition-colors;
+}
+.resize-handle:hover,
+.resize-handle[data-resize-handle-state="drag"] {
+  @apply bg-brand-accent;
+}
+
+.resize-handle-vertical {
+  @apply h-[1px] w-full bg-brand-border relative my-1 transition-colors;
+}
+.resize-handle-vertical:hover,
+.resize-handle-vertical[data-resize-handle-state="drag"] {
+  @apply bg-brand-accent;
+}
+
+
+/* Markdown Viewer Styles matching QWebEngineView */
+.markdown-preview {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  padding: 20px 32px;
+}
+
+.markdown-preview h1 { color: #89b4fa; border-bottom: 1px solid #45475a; padding-bottom: 8px; margin-top: 24px; margin-bottom: 16px; font-size: 2em; font-weight: bold; }
+.markdown-preview h2 { color: #89b4fa; border-bottom: 1px solid #45475a; padding-bottom: 6px; margin-top: 24px; margin-bottom: 16px; font-size: 1.5em; font-weight: bold; }
+.markdown-preview h3 { color: #74c7ec; margin-top: 24px; margin-bottom: 16px; font-size: 1.25em; font-weight: bold; }
+.markdown-preview h4, .markdown-preview h5, .markdown-preview h6 { color: #94e2d5; margin-top: 24px; margin-bottom: 16px; font-weight: bold; }
+
+.markdown-preview a { color: #89b4fa; text-decoration: none; }
+.markdown-preview a:hover { text-decoration: underline; }
+
+.markdown-preview code {
+  background: #313244;
+  color: #fab387;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+.markdown-preview pre {
+  background: #181825;
+  border: 1px solid #45475a;
+  border-radius: 6px;
+  padding: 16px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.markdown-preview pre code {
+  background: none;
+  color: #cdd6f4;
+  padding: 0;
+}
+
+.markdown-preview blockquote {
+  border-left: 4px solid #89b4fa;
+  margin: 16px 0;
+  padding: 8px 16px;
+  background: #181825;
+  color: #a6adc8;
+}
+
+.markdown-preview table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 16px 0;
+}
+
+.markdown-preview th, .markdown-preview td {
+  border: 1px solid #45475a;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.markdown-preview th {
+  background: #313244;
+  color: #89b4fa;
+  font-weight: 600;
+}
+
+.markdown-preview tr:nth-child(even) {
+  background: #181825;
+}
+
+.markdown-preview hr {
+  border: none;
+  border-top: 1px solid #45475a;
+  margin: 24px 0;
+}
+
+.markdown-preview ul, .markdown-preview ol {
+  padding-left: 24px;
+  margin: 16px 0;
+}
+
+.markdown-preview ul { list-style-type: disc; }
+.markdown-preview ol { list-style-type: decimal; }
+
+.markdown-preview li {
+  margin: 4px 0;
+}
+
+.markdown-preview img {
+  max-width: 100%;
+  border-radius: 6px;
+}
